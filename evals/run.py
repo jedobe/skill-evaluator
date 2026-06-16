@@ -35,6 +35,8 @@ CASES = [
 
 
 def extract_total(output: str) -> int | None:
+    if not output:
+        return None
     match = re.search(r"\*\*Total\*\*\s*\|\s*\*\*(\d+)\*\*", output)
     if match:
         return int(match.group(1))
@@ -42,6 +44,8 @@ def extract_total(output: str) -> int | None:
 
 
 def extract_tier(output: str) -> str | None:
+    if not output:
+        return None
     match = re.search(r"###\s*Tier:\s*(Bronze|Silver|Gold|Elite)", output)
     if match:
         return match.group(1)
@@ -61,10 +65,14 @@ def run_case(case: dict) -> dict:
         ["claude", "-p", "--system-prompt", skill_content, prompt],
         capture_output=True,
         text=True,
+        encoding="utf-8",
         timeout=120,
     )
 
-    output = result.stdout
+    output = result.stdout or ""
+    if result.returncode != 0 and result.stderr:
+        print(f"  [stderr] {result.stderr[:200]}", file=sys.stderr)
+
     total = extract_total(output)
     tier = extract_tier(output)
     lo, hi = case["expected_range"]
