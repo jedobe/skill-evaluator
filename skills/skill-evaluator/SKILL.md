@@ -47,13 +47,13 @@ Score any Claude Code skill against a rubric reverse-engineered from the most-st
 
    State the category at the top of the output: `Category: Tool skill` or `Category: Guideline skill`.
 
-4. Score each dimension using the rubric below. **Apply the correct weight column for the category.**
+5. Score each dimension using the rubric below. **Apply the correct weight column for the category.**
 
-5. Output the scorecard in the format below.
+6. Output the scorecard in the format below.
 
-6. For every dimension scoring below 70% of its maximum, give one specific, actionable improvement with a concrete example.
+7. For every dimension scoring below 70% of its maximum, give one specific, actionable improvement with a concrete example.
 
-7. **Optional — Behavioral eval note:** If `evals/fixtures/<skill-name>/` exists in the repository, note at the end of the scorecard:
+8. **Optional — Behavioral eval note:** If `evals/fixtures/<skill-name>/` exists in the repository, note at the end of the scorecard:
    > `Behavioral eval available: python evals/run.py --mode behavioral`
    This is a signal that the skill can be tested for actual behavioral impact, not just document quality. If it does not exist, suggest adding it as the highest-value improvement for Verifiability.
 

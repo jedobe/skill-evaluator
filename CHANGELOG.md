@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.4.0 — 2026.06.16
+
+- feat: behavioral eval system — `evals/behavioral.py` runs Pass A (with skill) vs Pass B (baseline) and uses an LLM judge to measure behavioral delta
+- feat: `evals/run.py --mode static|behavioral|both` — unified runner combining both eval types
+- feat: `evals/fixtures/karpathy/` — 5 benchmark tasks (no-gold-plating, surface-assumptions, surgical-edit, goal-definition, minimal-implementation)
+- feat: `evals/fixtures/minimal/` — 3 negative-control tasks validating judge is not trivially biased
+- fix: Verifiability rubric updated to distinguish static evals (9–12 pts) from behavioral fixtures (13–15 pts)
+- fix: SKILL.md How to Run step numbering corrected (duplicate step 4 removed)
+- docs: evals/README.md fully rewritten to document both eval layers
+
 ## v1.3.0 — 2026.06.16
 
 - fix: add evaluation scope step (Single skill vs Plugin collection) to prevent artificially low scores on plugin repos
