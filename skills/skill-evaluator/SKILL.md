@@ -30,11 +30,19 @@ Score any Claude Code skill against a rubric reverse-engineered from the most-st
 
 2. Read the full skill content. If the file does not exist or the URL is unreachable, tell the user and stop.
 
-3. Score each dimension using the rubric below.
+3. **Classify the skill category** before scoring:
 
-4. Output the scorecard in the format below.
+   - **Tool skill** — produces structured output, processes files, calls APIs, or automates a specific task (examples: PDF processor, code reviewer, UI generator, data query tool)
+   - **Guideline skill** — modifies how the model behaves or thinks; no structured output; composed of rules, principles, or style guidance (examples: karpathy-guidelines, commit style guides, tone policies)
+   - If unclear, default to Tool skill.
 
-5. For every dimension scoring below 70% of its maximum, give one specific, actionable improvement with a concrete example.
+   State the category at the top of the output: `Category: Tool skill` or `Category: Guideline skill`.
+
+4. Score each dimension using the rubric below. **Apply the correct weight column for the category.**
+
+5. Output the scorecard in the format below.
+
+6. For every dimension scoring below 70% of its maximum, give one specific, actionable improvement with a concrete example.
 
 ---
 
@@ -45,14 +53,16 @@ Always output in this exact structure:
 ```
 ## Skill Evaluation: {skill name}
 
+Category: {Tool skill / Guideline skill}
+
 | Dimension | Score | Max | Notes |
 |-----------|-------|-----|-------|
 | Trigger Clarity | X | 20 | one-line observation |
-| Instruction Specificity | X | 15 | one-line observation |
-| Reference Density | X | 15 | one-line observation |
-| Verifiability | X | 15 | one-line observation |
-| Tradeoff Transparency | X | 10 | one-line observation |
-| Portability | X | 15 | one-line observation |
+| Instruction Specificity | X | {15 or 20} | one-line observation |
+| Reference Density | X | {15 or 8} | one-line observation |
+| Verifiability | X | {15 or 8} | one-line observation |
+| Tradeoff Transparency | X | {10 or 16} | one-line observation |
+| Portability | X | {15 or 18} | one-line observation |
 | Maintenance Maturity | X | 10 | one-line observation |
 | **Total** | **X** | **100** | |
 
@@ -87,6 +97,19 @@ Always output in this exact structure:
 Derived from analysis of the 9 most-starred Claude Code skill repositories (June 2026).
 
 **Source repos:** obra/superpowers (228k★), affaan-m/ECC (216k★), multica-ai/andrej-karpathy-skills (176k★), anthropics/skills (151k★), nextlevelbuilder/ui-ux-pro-max-skill (92k★), thedotmack/claude-mem (82k★), JuliusBrussee/caveman (73k★), OthmanAdi/planning-with-files (23k★), NeoLabHQ/context-engineering-kit
+
+### Category weights
+
+| Dimension | Tool skill | Guideline skill | Why different |
+|-----------|-----------|-----------------|---------------|
+| Trigger Clarity | 20 | 20 | Same for both |
+| Instruction Specificity | 15 | **20** | Rules/principles ARE the product — specificity is the entire value |
+| Reference Density | 15 | **8** | Guideline skills are intentionally concise; data tables would bloat them |
+| Verifiability | 15 | **8** | No structured output to verify; success is behavioral change, not a file |
+| Tradeoff Transparency | 10 | **16** | Honest scope limits matter more when the whole skill is "always do X" |
+| Portability | 15 | **18** | Guidelines should work anywhere; slightly higher bar |
+| Maintenance Maturity | 10 | 10 | Same for both |
+| **Total** | **100** | **100** | |
 
 ### Dimension 1 — Trigger Clarity (20 pts)
 
