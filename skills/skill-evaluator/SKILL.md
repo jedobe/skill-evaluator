@@ -30,7 +30,16 @@ Score any Claude Code skill against a rubric reverse-engineered from the most-st
 
 2. Read the full skill content. If the file does not exist or the URL is unreachable, tell the user and stop.
 
-3. **Classify the skill category** before scoring:
+3. **Determine the evaluation scope:**
+
+   - **Single skill** — a standalone `SKILL.md` file. Evaluate only what is in that file and its immediate sibling files (e.g. `references/`, `scripts/`).
+   - **Plugin / repo collection** — a GitHub repository containing multiple skills, agents, commands, or hooks (e.g. ECC, superpowers). Evaluate the full repository: individual skills are representative samples, but also include repo-level evidence such as CI pipelines, test suites, install scripts (`install.sh`, `install.ps1`), and repo-level docs (`SECURITY.md`, `CODE_OF_CONDUCT.md`, `CHANGELOG.md`).
+
+   State the scope at the top of the output: `Scope: Single skill` or `Scope: Plugin collection`.
+
+   **Critical:** for a plugin collection, do NOT sample only one or two SKILL.md files and ignore the rest of the repo. Missing repo-level infrastructure (tests, CI, install scripts) will produce artificially low scores on Verifiability, Portability, and Maintenance Maturity.
+
+4. **Classify the skill category** before scoring:
 
    - **Tool skill** — produces structured output, processes files, calls APIs, or automates a specific task (examples: PDF processor, code reviewer, UI generator, data query tool)
    - **Guideline skill** — modifies how the model behaves or thinks; no structured output; composed of rules, principles, or style guidance (examples: karpathy-guidelines, commit style guides, tone policies)
@@ -55,6 +64,7 @@ Always output in this exact structure:
 ```
 ## Skill Evaluation: {skill name}
 
+Scope: {Single skill / Plugin collection}
 Category: {Tool skill / Guideline skill}
 
 | Dimension | Score | Max | Notes |

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.3.0 — 2026.06.16
+
+- fix: add evaluation scope step (Single skill vs Plugin collection) to prevent artificially low scores on plugin repos
+- fix: output format now includes `Scope:` line alongside `Category:`
+- discovered via: ECC evaluated as 70/Gold when correct score is 85/Elite — root cause was ignoring repo-level CI, tests, and install scripts
+
 ## v1.2.0 — 2026.06.16
 
 - fix: rebalance Guideline skill weights so strong behavioral skills clear the Gold threshold decisively (Instruction Specificity 20→24, Tradeoff 16→18; Verifiability 8→5, Maintenance 10→7) — a low-70s boundary score is not a credible "excellent" signal
