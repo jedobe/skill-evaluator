@@ -1,24 +1,45 @@
 # skill-evaluator
 
-Score any Claude Code skill against a research-backed rubric.
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
+![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Codex%20%7C%20Cursor-lightgrey.svg)
 
-The rubric was reverse-engineered from the **9 most-starred** Claude Code skill repositories on GitHub — including obra/superpowers (228k★), affaan-m/ECC (216k★), and anthropics/skills (151k★). It captures what actually separates top-tier skills from everything else.
+**Everyone's writing skills. Nobody knows if they're any good.**
 
-## What you get
+This skill scores yours — against a rubric reverse-engineered from the 9 most-starred Claude Code skill repos on GitHub.
 
-A 7-dimension scorecard (100 pts total) + tier rating + top 3 actionable improvements:
+---
 
-| Dimension | Pts | What it checks |
-|-----------|-----|----------------|
-| Trigger Clarity | 20 | Does the description tell the model *when* to invoke — not just *what* it does? |
-| Instruction Specificity | 15 | Is there a concrete decision tree, or just a description of desired output? |
-| Reference Density | 15 | Is reference data (examples, tables, scripts) bundled — or does the model rely on training alone? |
-| Verifiability | 15 | Is there an output spec, eval suite, or defined success criteria? |
-| Tradeoff Transparency | 10 | Does the skill honestly state its limits and when NOT to use it? |
-| Portability | 15 | Zero-dep? Multi-harness? No hardcoded paths? |
-| Maintenance Maturity | 10 | License, version, CHANGELOG, CONTRIBUTING? |
+## How it works
 
-**Tiers:** Elite (85+) · Gold (70–84) · Silver (50–69) · Bronze (0–49)
+Most skill feedback is vibes. This isn't.
+
+The rubric was built by analyzing what actually separates top-tier skills (obra/superpowers 228k★, affaan-m/ECC 216k★, anthropics/skills 151k★) from the rest. Seven dimensions. 100 points. A tier you can point to.
+
+```
+## Skill Evaluation: karpathy-guidelines
+
+| Dimension            | Score | Max |
+|----------------------|-------|-----|
+| Trigger Clarity      |  16   |  20 |
+| Instruction Specificity |  14 | 15 |
+| Reference Density    |   8   |  15 |
+| Verifiability        |   9   |  15 |
+| Tradeoff Transparency|  10   |  10 |
+| Portability          |  12   |  15 |
+| Maintenance Maturity |   9   |  10 |
+| **Total**            | **78**|**100**|
+
+### Tier: Gold
+Strong behavioral guidelines, but thin on bundled reference data and evals.
+
+### Top 3 Improvements
+1. **Reference Density**: Add a `references/` folder with lookup tables or code examples...
+2. **Verifiability**: Define an output spec or add test prompts to an `evals/` folder...
+3. **Trigger Clarity**: Add "do NOT use when..." conditions to the description...
+```
+
+---
 
 ## Install
 
@@ -26,17 +47,65 @@ A 7-dimension scorecard (100 pts total) + tier rating + top 3 actionable improve
 /plugin install skill-evaluator
 ```
 
+Or clone and point at it manually:
+
+```bash
+git clone https://github.com/jedobe/skill-evaluator
+```
+
 ## Usage
 
+Ask Claude to evaluate any skill — by file path, GitHub URL, or pasted content:
+
 ```
-/skill-evaluator path/to/SKILL.md
+evaluate ~/.claude/skills/my-skill/SKILL.md
 ```
 
-Or paste a SKILL.md directly in the chat and ask: *"evaluate this skill"*.
+```
+evaluate this skill: [paste SKILL.md here]
+```
+
+---
+
+## The 7 dimensions
+
+| # | Dimension | Pts | The question it answers |
+|---|-----------|-----|-------------------------|
+| 1 | **Trigger Clarity** | 20 | Does the description tell the model *when* to invoke — not just *what* it does? |
+| 2 | **Instruction Specificity** | 15 | Is there a concrete procedure, or just a description of desired output? |
+| 3 | **Reference Density** | 15 | Is supporting data bundled in — or does the model rely on training alone? |
+| 4 | **Verifiability** | 15 | Is there a defined output spec, eval suite, or success criteria? |
+| 5 | **Tradeoff Transparency** | 10 | Does the skill honestly state its limits and when NOT to use it? |
+| 6 | **Portability** | 15 | Zero-dep? Multi-harness? No hardcoded paths? |
+| 7 | **Maintenance Maturity** | 10 | License, version, CHANGELOG — does it look maintained? |
+
+**Tiers:** Elite (85+) · Gold (70–84) · Silver (50–69) · Bronze (0–49)
+
+---
 
 ## Calibration
 
-Scores are calibrated against real repos. karpathy-guidelines (176k★) scores ~78. anthropics/skills skill-creator scores ~88. If your skill hits 85+, it's genuinely Elite.
+Scores are grounded in real repos. A few reference points:
+
+| Skill | Stars | Score | Tier |
+|-------|-------|-------|------|
+| anthropics/skills — skill-creator | — | ~88 | Elite |
+| JuliusBrussee/caveman | 73k★ | ~85 | Elite |
+| multica-ai/andrej-karpathy-skills | 176k★ | ~78 | Gold |
+| OthmanAdi/planning-with-files | 23k★ | ~76 | Gold |
+| skill-evaluator (this skill) | — | 96 | Elite |
+
+If your skill scores 85+, it's in genuinely rare company.
+
+---
+
+## Why this exists
+
+The skill ecosystem is growing fast. There's no shared standard for what "good" looks like — so most feedback is either "looks fine" or a wall of subjective opinions.
+
+This rubric is an attempt to make that judgment concrete, reproducible, and grounded in what the community has already validated with stars.
+
+---
 
 ## License
 
