@@ -14,7 +14,7 @@ This skill scores yours — against a rubric reverse-engineered from the 9 most-
 
 Most skill feedback is vibes. This isn't.
 
-The rubric was built by analyzing what actually separates top-tier skills (obra/superpowers 228k★, affaan-m/ECC 216k★, anthropics/skills 151k★) from the rest. Seven dimensions. 100 points. A tier you can point to.
+The rubric was built by analyzing what actually separates top-tier skills (obra/superpowers 229k★, affaan-m/ECC 216k★, anthropics/skills 151k★) from the rest. Seven dimensions. 100 points. A tier you can point to.
 
 ```
 ## Skill Evaluation: karpathy-guidelines

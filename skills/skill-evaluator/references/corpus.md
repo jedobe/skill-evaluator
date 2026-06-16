@@ -4,7 +4,7 @@ Structural analysis of the 9 most-starred Claude Code skill repositories (June 2
 
 ---
 
-## obra/superpowers (228k★)
+## obra/superpowers (229k★)
 
 | Dimension | Pattern observed |
 |-----------|-----------------|
@@ -68,6 +68,22 @@ Structural analysis of the 9 most-starred Claude Code skill repositories (June 2
 
 ---
 
+## mattpocock/skills (131k★)
+
+| Dimension | Pattern observed |
+|-----------|-----------------|
+| Trigger Clarity | Description names use-cases plus trigger phrases ("Use when… mentions… asks for") |
+| Instruction Specificity | Explicit DO NOT anti-patterns; red-green-refactor loop; vertical-slice procedure |
+| Reference Density | Multiple bundled reference files per skill (tests.md, mocking.md, refactoring.md) |
+| Verifiability | Behavior-focused guidance; no committed evals or snapshots |
+| Tradeoff Transparency | Anti-pattern warnings; less explicit "when not to use this skill" |
+| Portability | `.claude-plugin` packaging; LICENSE present; primarily Claude Code |
+| Maintenance Maturity | LICENSE + README + CLAUDE.md + docs; actively pushed |
+
+**Estimated score: ~83/100 · Gold**
+
+---
+
 ## nextlevelbuilder/ui-ux-pro-max-skill (92k★)
 
 | Dimension | Pattern observed |
@@ -84,7 +100,7 @@ Structural analysis of the 9 most-starred Claude Code skill repositories (June 2
 
 ---
 
-## thedotmack/claude-mem (82k★)
+## thedotmack/claude-mem (83k★)
 
 | Dimension | Pattern observed |
 |-----------|-----------------|
@@ -129,22 +145,6 @@ Structural analysis of the 9 most-starred Claude Code skill repositories (June 2
 | Maintenance Maturity | License + CHANGELOG + CONTRIBUTING |
 
 **Estimated score: ~76/100 · Gold**
-
----
-
-## NeoLabHQ/context-engineering-kit
-
-| Dimension | Pattern observed |
-|-----------|-----------------|
-| Trigger Clarity | Moderate; 2–3 conditions |
-| Instruction Specificity | Procedure described; moderate branching |
-| Reference Density | Reference data bundled |
-| Verifiability | Output examples provided |
-| Tradeoff Transparency | Mentions context window limits |
-| Portability | Multi-harness |
-| Maintenance Maturity | License present |
-
-**Estimated score: ~79/100 · Gold**
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: skill-evaluator
-description: Score a Claude Code skill against a research-backed rubric derived from the top 9 most-starred skill repos on GitHub (obra/superpowers 228k★, affaan-m/ECC 216k★, anthropics/skills 151k★, and more). Use when a user asks to evaluate, score, review, rate, or improve a skill — or when they share a SKILL.md and want to know how good it is. Do NOT use for CLAUDE.md, .cursorrules, or system prompt files — these are not packaged skills; note the file type in the output and score what you can.
+description: Score a Claude Code skill against a research-backed rubric derived from the top 9 most-starred skill repos on GitHub (obra/superpowers 229k★, affaan-m/ECC 216k★, anthropics/skills 151k★, and more). Use when a user asks to evaluate, score, review, rate, or improve a skill — or when they share a SKILL.md and want to know how good it is. Do NOT use for CLAUDE.md, .cursorrules, or system prompt files — these are not packaged skills; note the file type in the output and score what you can.
 license: MIT
 platforms:
   - claude-code
@@ -98,7 +98,7 @@ Category: {Tool skill / Guideline skill}
 
 Derived from analysis of the 9 most-starred Claude Code skill repositories (June 2026).
 
-**Source repos:** obra/superpowers (228k★), affaan-m/ECC (216k★), multica-ai/andrej-karpathy-skills (176k★), anthropics/skills (151k★), nextlevelbuilder/ui-ux-pro-max-skill (92k★), thedotmack/claude-mem (82k★), JuliusBrussee/caveman (73k★), OthmanAdi/planning-with-files (23k★), NeoLabHQ/context-engineering-kit
+**Source repos:** obra/superpowers (229k★), affaan-m/ECC (216k★), multica-ai/andrej-karpathy-skills (176k★), anthropics/skills (151k★), mattpocock/skills (131k★), nextlevelbuilder/ui-ux-pro-max-skill (92k★), thedotmack/claude-mem (83k★), JuliusBrussee/caveman (73k★), OthmanAdi/planning-with-files (23k★)
 
 ### Category weights
 

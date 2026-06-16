@@ -7,6 +7,7 @@
 - fix: README synced with category-weighted scorecard (Category line + Tool/Guideline columns)
 - fix: eval karpathy band set to 72–82 Gold; snapshot regenerated from a live run
 - fix: ASCII hyphen in eval console output (en-dash crashed on Windows cp949 stdout)
+- fix: corpus accuracy — replace NeoLabHQ/context-engineering-kit (1.1k★, the lone outlier breaking the "most-starred" claim) with mattpocock/skills (131k★); correct star counts against live GitHub data (obra 228k→229k, claude-mem 82k→83k)
 
 ## v1.1.0 — 2026.06.16
 
