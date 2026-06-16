@@ -65,7 +65,7 @@ Category: {Tool skill / Guideline skill}
 | Verifiability | X | <Max> | one-line observation |
 | Tradeoff Transparency | X | <Max> | one-line observation |
 | Portability | X | <Max> | one-line observation |
-| Maintenance Maturity | X | 10 | one-line observation |
+| Maintenance Maturity | X | <Max> | one-line observation |
 | **Total** | **X** | **100** | |
 
 ### Tier: {Bronze / Silver / Gold / Elite}
@@ -105,12 +105,12 @@ Derived from analysis of the 9 most-starred Claude Code skill repositories (June
 | Dimension | Tool skill | Guideline skill | Why different |
 |-----------|-----------|-----------------|---------------|
 | Trigger Clarity | 20 | 20 | Same for both |
-| Instruction Specificity | 15 | **20** | Rules/principles ARE the product — specificity is the entire value |
+| Instruction Specificity | 15 | **24** | Rules/principles ARE the product — specificity is the entire value |
 | Reference Density | 15 | **8** | Guideline skills are intentionally concise; data tables would bloat them |
-| Verifiability | 15 | **8** | No structured output to verify; success is behavioral change, not a file |
-| Tradeoff Transparency | 10 | **16** | Honest scope limits matter more when the whole skill is "always do X" |
+| Verifiability | 15 | **5** | Behavioral skills have no structured output to verify; success is a change in behavior, not a file |
+| Tradeoff Transparency | 10 | **18** | Honest scope limits matter more when the whole skill is "always do X" |
 | Portability | 15 | **18** | Guidelines should work anywhere; slightly higher bar |
-| Maintenance Maturity | 10 | 10 | Same for both |
+| Maintenance Maturity | 10 | **7** | A single-file guideline needs less repo scaffolding than a tool |
 | **Total** | **100** | **100** | |
 
 ### Dimension 1 — Trigger Clarity (20 pts)
@@ -128,16 +128,16 @@ Derived from analysis of the 9 most-starred Claude Code skill repositories (June
 - Elite: `"Use when the user asks to evaluate, score, review, rate, or improve a skill — or when they share a SKILL.md and want feedback"` ✓
 - Poor: `"A skill for reviewing skills"` ✗
 
-### Dimension 2 — Instruction Specificity (Tool: 15 pts · Guideline: 20 pts)
+### Dimension 2 — Instruction Specificity (Tool: 15 pts · Guideline: 24 pts)
 
 **What it measures:** Does the body give the model a concrete decision tree or procedure to follow, not just a description of what output to produce?
 
 | Tool Score | Guideline Score | Criteria |
 |-----------|-----------------|----------|
-| 13–15 | 17–20 | Step-by-step procedure with explicit branching (if X then Y). Model cannot misinterpret. Includes what to do when inputs are missing or ambiguous. |
-| 9–12 | 12–16 | Clear steps but missing edge case handling or branching. |
-| 5–8 | 7–11 | Describes desired output but not the process to get there. Model must fill in the gaps. |
-| 0–4 | 0–6 | Vague prose. "Help the user do X." |
+| 13–15 | 20–24 | Step-by-step procedure with explicit branching (if X then Y). Model cannot misinterpret. Includes what to do when inputs are missing or ambiguous. |
+| 9–12 | 14–19 | Clear steps but missing edge case handling or branching. |
+| 5–8 | 8–13 | Describes desired output but not the process to get there. Model must fill in the gaps. |
+| 0–4 | 0–7 | Vague prose. "Help the user do X." |
 
 **What to look for:** Numbered steps, conditional logic, explicit fallback behavior.
 
@@ -154,29 +154,29 @@ Derived from analysis of the 9 most-starred Claude Code skill repositories (June
 
 **What to look for:** `references/` folder, `scripts/` folder, embedded data tables, code snippets with real values.
 
-### Dimension 4 — Verifiability (Tool: 15 pts · Guideline: 8 pts)
+### Dimension 4 — Verifiability (Tool: 15 pts · Guideline: 5 pts)
 
 **What it measures:** Can success be verified? Does the skill define what "done" looks like, or better yet, include evals/benchmarks?
 
 | Tool Score | Guideline Score | Criteria |
 |-----------|-----------------|----------|
-| 13–15 | 7–8 | Includes evals, benchmarks, or CI-committed snapshots. Output format is fully specified with examples. |
-| 9–12 | 5–6 | Specifies the exact output format or success criteria. No evals but clear definition of done. |
-| 5–8 | 3–4 | Rough description of expected output. Leaves ambiguity. |
-| 0–4 | 0–2 | No output spec. "Good results" is the only criterion. |
+| 13–15 | 5 | Includes evals, benchmarks, or CI-committed snapshots. Output format is fully specified with examples. |
+| 9–12 | 3–4 | Specifies the exact output format or success criteria. No evals but clear definition of done. |
+| 5–8 | 2 | Rough description of expected output. Leaves ambiguity. |
+| 0–4 | 0–1 | No output spec. "Good results" is the only criterion. |
 
 **What to look for:** Defined output templates, `evals/` folder, test prompts, success/failure examples.
 
-### Dimension 5 — Tradeoff Transparency (Tool: 10 pts · Guideline: 16 pts)
+### Dimension 5 — Tradeoff Transparency (Tool: 10 pts · Guideline: 18 pts)
 
 **What it measures:** Does the skill honestly state its limitations, biases, or when NOT to use it?
 
 | Tool Score | Guideline Score | Criteria |
 |-----------|-----------------|----------|
-| 9–10 | 14–16 | Explicit tradeoff statement. States what the skill sacrifices and for what. Names scenarios where it should not be used. |
-| 6–8 | 10–13 | Mentions limitations briefly. |
-| 3–5 | 5–8 | Implies limitations but doesn't state them. |
-| 0–2 | 0–4 | Claims universal applicability. No caveats. |
+| 9–10 | 16–18 | Explicit tradeoff statement. States what the skill sacrifices and for what. Names scenarios where it should not be used. |
+| 6–8 | 11–15 | Mentions limitations briefly. |
+| 3–5 | 6–10 | Implies limitations but doesn't state them. |
+| 0–2 | 0–5 | Claims universal applicability. No caveats. |
 
 **Example of elite pattern (karpathy-guidelines):**
 > `Tradeoff: These guidelines bias toward caution over speed. For trivial tasks, use judgment.`
@@ -192,16 +192,16 @@ Derived from analysis of the 9 most-starred Claude Code skill repositories (June
 | 5–8 | 6–10 | Requires manual setup. May reference project-specific paths or tools. |
 | 0–4 | 0–5 | Only works in one specific setup. Hardcoded paths, project names, or internal tooling. |
 
-### Dimension 7 — Maintenance Maturity (10 pts)
+### Dimension 7 — Maintenance Maturity (Tool: 10 pts · Guideline: 7 pts)
 
 **What it measures:** Does the repository show signs of being maintained and trustworthy over time?
 
-| Score | Criteria |
-|-------|----------|
-| 9–10 | License, version, CHANGELOG, CONTRIBUTING, and author contact all present. |
-| 6–8 | License + version present. Missing 1–2 of the others. |
-| 3–5 | Only a README. No version, no license. |
-| 0–2 | No metadata at all. |
+| Tool Score | Guideline Score | Criteria |
+|-----------|-----------------|----------|
+| 9–10 | 7 | License, version, CHANGELOG, CONTRIBUTING, and author contact all present. |
+| 6–8 | 5–6 | License + version present. Missing 1–2 of the others. |
+| 3–5 | 3–4 | Only a README. No version, no license. |
+| 0–2 | 0–2 | No metadata at all. |
 
 ### Calibration Reference
 
@@ -209,7 +209,7 @@ Derived from analysis of the 9 most-starred Claude Code skill repositories (June
 
 | Skill | Category | Score | Key Strengths | Key Weaknesses |
 |-------|----------|-------|---------------|----------------|
-| karpathy-guidelines | Guideline | ~68/100 | Tradeoff transparency, instruction specificity | No evals, thin reference data |
+| karpathy-guidelines | Guideline | ~78/100 | Tradeoff transparency, instruction specificity | No evals, thin reference data |
 | anthropics/skills pdf | Tool | ~82/100 | Reference density (full code examples), verifiability | Limited multi-harness |
 | anthropics/skills skill-creator | Tool | ~88/100 | Eval loop, output format, full procedure | Complex, high token cost |
 | JuliusBrussee/caveman | Tool | ~85/100 | Real LLM benchmarks, control arm testing | Very narrow use case |

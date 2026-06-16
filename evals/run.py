@@ -28,8 +28,8 @@ CASES = [
     {
         "name": "karpathy",
         "prompt_file": "karpathy.txt",
-        "expected_range": (60, 76),
-        "expected_tier": "Silver",
+        "expected_range": (72, 82),
+        "expected_tier": "Gold",
     },
 ]
 
@@ -100,7 +100,7 @@ def main():
         results.append(r)
         lo, hi = r["expected_range"]
         status = "PASS" if r["passed"] else "FAIL"
-        expected = f"{lo}\u2013{hi} {r['expected_tier']}"
+        expected = f"{lo}-{hi} {r['expected_tier']}"
         print(f"{r['name']:<12} {str(r['total']):<8} {str(r['tier']):<10} {expected:<18} {status}")
 
     SNAPSHOTS_DIR.mkdir(exist_ok=True)

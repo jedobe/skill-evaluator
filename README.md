@@ -19,15 +19,17 @@ The rubric was built by analyzing what actually separates top-tier skills (obra/
 ```
 ## Skill Evaluation: karpathy-guidelines
 
+Category: Guideline skill
+
 | Dimension            | Score | Max |
 |----------------------|-------|-----|
 | Trigger Clarity      |  16   |  20 |
-| Instruction Specificity |  14 | 15 |
-| Reference Density    |   8   |  15 |
-| Verifiability        |   9   |  15 |
-| Tradeoff Transparency|  10   |  10 |
-| Portability          |  12   |  15 |
-| Maintenance Maturity |   9   |  10 |
+| Instruction Specificity |  20 | 24 |
+| Reference Density    |   5   |   8 |
+| Verifiability        |   3   |   5 |
+| Tradeoff Transparency|  16   |  18 |
+| Portability          |  14   |  18 |
+| Maintenance Maturity |   4   |   7 |
 | **Total**            | **78**|**100**|
 
 ### Tier: Gold
@@ -69,15 +71,17 @@ evaluate this skill: [paste SKILL.md here]
 
 ## The 7 dimensions
 
-| # | Dimension | Pts | The question it answers |
-|---|-----------|-----|-------------------------|
-| 1 | **Trigger Clarity** | 20 | Does the description tell the model *when* to invoke — not just *what* it does? |
-| 2 | **Instruction Specificity** | 15 | Is there a concrete procedure, or just a description of desired output? |
-| 3 | **Reference Density** | 15 | Is supporting data bundled in — or does the model rely on training alone? |
-| 4 | **Verifiability** | 15 | Is there a defined output spec, eval suite, or success criteria? |
-| 5 | **Tradeoff Transparency** | 10 | Does the skill honestly state its limits and when NOT to use it? |
-| 6 | **Portability** | 15 | Zero-dep? Multi-harness? No hardcoded paths? |
-| 7 | **Maintenance Maturity** | 10 | License, version, CHANGELOG — does it look maintained? |
+Weights adapt to the skill category. **Tool skills** produce structured output or automate a task; **Guideline skills** shape how the model behaves. Both total 100.
+
+| # | Dimension | Tool | Guideline | The question it answers |
+|---|-----------|------|-----------|-------------------------|
+| 1 | **Trigger Clarity** | 20 | 20 | Does the description tell the model *when* to invoke — not just *what* it does? |
+| 2 | **Instruction Specificity** | 15 | 24 | Is there a concrete procedure, or just a description of desired output? |
+| 3 | **Reference Density** | 15 | 8 | Is supporting data bundled in — or does the model rely on training alone? |
+| 4 | **Verifiability** | 15 | 5 | Is there a defined output spec, eval suite, or success criteria? |
+| 5 | **Tradeoff Transparency** | 10 | 18 | Does the skill honestly state its limits and when NOT to use it? |
+| 6 | **Portability** | 15 | 18 | Zero-dep? Multi-harness? No hardcoded paths? |
+| 7 | **Maintenance Maturity** | 10 | 7 | License, version, CHANGELOG — does it look maintained? |
 
 **Tiers:** Elite (85+) · Gold (70–84) · Silver (50–69) · Bronze (0–49)
 

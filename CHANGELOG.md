@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.2.0 — 2026.06.16
+
+- fix: rebalance Guideline skill weights so strong behavioral skills clear the Gold threshold decisively (Instruction Specificity 20→24, Tradeoff 16→18; Verifiability 8→5, Maintenance 10→7) — a low-70s boundary score is not a credible "excellent" signal
+- fix: align karpathy calibration anchor back to ~78 (matches corpus.md and Scoring Rules)
+- fix: README synced with category-weighted scorecard (Category line + Tool/Guideline columns)
+- fix: eval karpathy band set to 72–82 Gold; snapshot regenerated from a live run
+- fix: ASCII hyphen in eval console output (en-dash crashed on Windows cp949 stdout)
+
 ## v1.1.0 — 2026.06.16
 
 - feat: skill category detection (Tool skill / Guideline skill) with separate rubric weights
