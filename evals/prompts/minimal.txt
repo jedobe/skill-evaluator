@@ -1,0 +1,6 @@
+---
+name: hello
+description: A simple hello skill
+---
+
+Say hello to the user.

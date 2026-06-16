@@ -1,0 +1,22 @@
+{
+  "name": "skill-evaluator",
+  "description": "Score any Claude Code skill against a research-backed rubric derived from the top 9 most-starred skill repos on GitHub. Get a 7-dimension scorecard and targeted improvement suggestions.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jaeseok Han",
+    "url": "https://github.com/jedobe"
+  },
+  "license": "MIT",
+  "keywords": [
+    "skill",
+    "eval",
+    "evaluation",
+    "rubric",
+    "quality",
+    "score",
+    "review",
+    "claude-code",
+    "agent-skills"
+  ],
+  "category": "development"
+}
