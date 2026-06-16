@@ -93,9 +93,10 @@ Scores are grounded in real repos. A few reference points:
 | JuliusBrussee/caveman | 73k★ | ~85 | Elite |
 | multica-ai/andrej-karpathy-skills | 176k★ | ~78 | Gold |
 | OthmanAdi/planning-with-files | 23k★ | ~76 | Gold |
-| skill-evaluator (this skill) | — | 96 | Elite |
 
 If your skill scores 85+, it's in genuinely rare company.
+
+> **Note:** skill-evaluator itself is not in this table. Meta-skills (tools that evaluate other tools) don't fit the rubric — the dimensions were designed for task-performing skills. Scoring a rubric tool against its own rubric is circular.
 
 ---
 

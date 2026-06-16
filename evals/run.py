@@ -25,12 +25,6 @@ CASES = [
         "expected_range": (5, 15),
         "expected_tier": "Bronze",
     },
-    {
-        "name": "self",
-        "prompt_file": None,  # uses the skill's own SKILL.md
-        "expected_range": (92, 100),
-        "expected_tier": "Elite",
-    },
 ]
 
 

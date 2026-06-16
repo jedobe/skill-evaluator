@@ -10,9 +10,8 @@ Three test cases with known expected score ranges, derived from manual analysis 
 |------|-------|---------------|---------------|
 | `karpathy` | karpathy-guidelines SKILL.md | 72–82 | Gold |
 | `minimal` | A near-empty skill with only a name | 5–15 | Bronze |
-| `self` | This skill's own SKILL.md | 92–100 | Elite |
 
-The `self` test is the most important: if skill-evaluator cannot score itself in the Elite tier, the rubric or the skill instructions are broken.
+skill-evaluator itself is intentionally excluded from evals. Meta-skills (tools that evaluate other tools) don't fit the rubric dimensions, which were designed for task-performing skills. A self-score would be circular and misleading.
 
 ## Running
 
