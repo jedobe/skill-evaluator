@@ -25,6 +25,12 @@ CASES = [
         "expected_range": (5, 15),
         "expected_tier": "Bronze",
     },
+    {
+        "name": "karpathy",
+        "prompt_file": "karpathy.txt",
+        "expected_range": (72, 82),
+        "expected_tier": "Gold",
+    },
 ]
 
 
