@@ -92,7 +92,8 @@ def main():
         results.append(r)
         lo, hi = r["expected_range"]
         status = "PASS" if r["passed"] else "FAIL"
-        print(f"{r['name']:<12} {str(r['total']):<8} {str(r['tier']):<10} {f'{lo}–{hi} {r[\"expected_tier\"]}':<18} {status}")
+        expected = f"{lo}\u2013{hi} {r['expected_tier']}"
+        print(f"{r['name']:<12} {str(r['total']):<8} {str(r['tier']):<10} {expected:<18} {status}")
 
     SNAPSHOTS_DIR.mkdir(exist_ok=True)
     (SNAPSHOTS_DIR / "results.json").write_text(
