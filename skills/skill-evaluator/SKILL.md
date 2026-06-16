@@ -1,6 +1,6 @@
 ---
 name: skill-evaluator
-description: Score a Claude Code skill against a research-backed rubric derived from the top 9 most-starred skill repos on GitHub (obra/superpowers 228k★, affaan-m/ECC 216k★, anthropics/skills 151k★, and more). Use when a user asks to evaluate, score, review, rate, or improve a skill — or when they share a SKILL.md and want to know how good it is. Do NOT use for CLAUDE.md, .cursorrules, system prompts, or any file that is not a packaged skill — note the file type and score what you can. Do NOT use for CLAUDE.md, .cursorrules, or system prompt files that are not packaged skills — note this in the output and score what you can.
+description: Score a Claude Code skill against a research-backed rubric derived from the top 9 most-starred skill repos on GitHub (obra/superpowers 228k★, affaan-m/ECC 216k★, anthropics/skills 151k★, and more). Use when a user asks to evaluate, score, review, rate, or improve a skill — or when they share a SKILL.md and want to know how good it is. Do NOT use for CLAUDE.md, .cursorrules, or system prompt files — these are not packaged skills; note the file type in the output and score what you can.
 license: MIT
 platforms:
   - claude-code
