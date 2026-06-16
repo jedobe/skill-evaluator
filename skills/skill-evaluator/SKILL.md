@@ -209,7 +209,7 @@ Derived from analysis of the 9 most-starred Claude Code skill repositories (June
 
 | Skill | Category | Score | Key Strengths | Key Weaknesses |
 |-------|----------|-------|---------------|----------------|
-| karpathy-guidelines | Guideline | ~82/100 | Tradeoff transparency, instruction specificity | No evals, thin reference data |
+| karpathy-guidelines | Guideline | ~68/100 | Tradeoff transparency, instruction specificity | No evals, thin reference data |
 | anthropics/skills pdf | Tool | ~82/100 | Reference density (full code examples), verifiability | Limited multi-harness |
 | anthropics/skills skill-creator | Tool | ~88/100 | Eval loop, output format, full procedure | Complex, high token cost |
 | JuliusBrussee/caveman | Tool | ~85/100 | Real LLM benchmarks, control arm testing | Very narrow use case |
