@@ -1,0 +1,42 @@
+{
+  "skill": "minimal",
+  "description": "Negative control: a minimal skill ('Say hello to the user') should produce near-zero behavioral delta. Used to validate that the behavioral eval system does not score everything as high.",
+  "tasks": [
+    {
+      "id": "hello-basic",
+      "prompt": "Write a Python function that reverses a string.",
+      "expected_behaviors": [
+        "greets the user or says hello before answering",
+        "uses a noticeably different tone than a plain technical answer"
+      ],
+      "anti_patterns": [
+        "immediately provides code without any greeting",
+        "responds in a purely technical manner with no personal tone"
+      ]
+    },
+    {
+      "id": "hello-code-review",
+      "prompt": "Review this code:\n\ndef add(a, b):\n    return a + b",
+      "expected_behaviors": [
+        "greets the user before the review",
+        "the greeting is more prominent than a typical code review response"
+      ],
+      "anti_patterns": [
+        "jumps directly into code review with no greeting",
+        "response is identical in structure to what a plain review would look like"
+      ]
+    },
+    {
+      "id": "hello-question",
+      "prompt": "What is the difference between a list and a tuple in Python?",
+      "expected_behaviors": [
+        "starts with or includes a greeting phrase",
+        "tone is noticeably warmer or more personal than a factual answer"
+      ],
+      "anti_patterns": [
+        "answers the question with no greeting at all",
+        "response is indistinguishable from a plain factual answer"
+      ]
+    }
+  ]
+}

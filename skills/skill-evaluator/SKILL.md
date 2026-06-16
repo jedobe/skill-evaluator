@@ -53,6 +53,10 @@ Score any Claude Code skill against a rubric reverse-engineered from the most-st
 
 6. For every dimension scoring below 70% of its maximum, give one specific, actionable improvement with a concrete example.
 
+7. **Optional — Behavioral eval note:** If `evals/fixtures/<skill-name>/` exists in the repository, note at the end of the scorecard:
+   > `Behavioral eval available: python evals/run.py --mode behavioral`
+   This is a signal that the skill can be tested for actual behavioral impact, not just document quality. If it does not exist, suggest adding it as the highest-value improvement for Verifiability.
+
 ---
 
 ## Output Format
@@ -166,16 +170,20 @@ Derived from analysis of the 9 most-starred Claude Code skill repositories (June
 
 ### Dimension 4 — Verifiability (Tool: 15 pts · Guideline: 5 pts)
 
-**What it measures:** Can success be verified? Does the skill define what "done" looks like, or better yet, include evals/benchmarks?
+**What it measures:** Can success be verified? Does the skill define what "done" looks like, or better yet, include evals/benchmarks that test actual behavioral change?
+
+There are two levels of verification — score at whichever level is present:
 
 | Tool Score | Guideline Score | Criteria |
 |-----------|-----------------|----------|
-| 13–15 | 5 | Includes evals, benchmarks, or CI-committed snapshots. Output format is fully specified with examples. |
-| 9–12 | 3–4 | Specifies the exact output format or success criteria. No evals but clear definition of done. |
-| 5–8 | 2 | Rough description of expected output. Leaves ambiguity. |
+| 13–15 | 5 | **Behavioral evals present**: `evals/fixtures/<skill>/tasks.json` + `judge.md` exist. Tests run Pass A (with skill) vs Pass B (baseline) and measure delta. Output format fully specified. |
+| 9–12 | 3–4 | **Static evals only**: `evals/` folder with test prompts and expected score ranges. Verifies evaluator consistency, not behavioral change. Clear definition of done. |
+| 5–8 | 2 | Rough description of expected output. Leaves ambiguity. No runnable tests. |
 | 0–4 | 0–1 | No output spec. "Good results" is the only criterion. |
 
-**What to look for:** Defined output templates, `evals/` folder, test prompts, success/failure examples.
+**What to look for:** `evals/fixtures/<skill>/tasks.json` (behavioral), `evals/` folder with prompts (static), defined output templates, CI-committed snapshots.
+
+**Static vs. Behavioral distinction:** Static evals check whether the *evaluator* scores consistently. Behavioral evals check whether the *skill itself* changes model outputs. A skill with only static evals can score 9–12; behavioral fixtures are required for 13–15.
 
 ### Dimension 5 — Tradeoff Transparency (Tool: 10 pts · Guideline: 18 pts)
 

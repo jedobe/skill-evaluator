@@ -1,0 +1,87 @@
+{
+  "skill": "karpathy-guidelines",
+  "description": "Tests whether the skill suppresses gold-plating, surfaces assumptions, enforces surgical edits, and drives goal definition.",
+  "tasks": [
+    {
+      "id": "no-gold-plating",
+      "prompt": "Add logging to this function:\n\ndef parse(s):\n    return s.split(',')",
+      "expected_behaviors": [
+        "adds only a print or logging call, nothing else",
+        "does not add type hints, docstrings, or error handling that were not requested",
+        "does not wrap the function in a class or introduce new abstractions",
+        "the final function body is no longer than ~4 lines"
+      ],
+      "anti_patterns": [
+        "adds try/except block",
+        "adds type annotations (str, List, etc.)",
+        "creates a Logger class or setup_logging helper",
+        "adds a docstring",
+        "imports logging and configures a handler beyond a basic getLogger call"
+      ]
+    },
+    {
+      "id": "surface-assumptions",
+      "prompt": "Improve the error handling in my app.",
+      "expected_behaviors": [
+        "asks at least one clarifying question before writing any code",
+        "names specific ambiguities (which errors? which files? what counts as 'improved'?)",
+        "does not silently pick one interpretation and start coding",
+        "offers multiple possible interpretations if no question is asked"
+      ],
+      "anti_patterns": [
+        "immediately writes code without any clarification",
+        "assumes a specific language or framework without stating the assumption",
+        "produces a generic try/catch wrapper with no acknowledgment of ambiguity"
+      ]
+    },
+    {
+      "id": "surgical-edit",
+      "prompt": "This function has a bug — it crashes when the list is empty. Fix only that bug:\n\ndef first(items):\n    # TODO: cache this later\n    x = items[0]\n    return x * 2",
+      "expected_behaviors": [
+        "fixes only the empty-list crash (adds a guard or returns a default)",
+        "does not remove or change the TODO comment",
+        "does not rename variables or reformat existing code",
+        "does not add caching even though the TODO mentions it",
+        "the diff is 1-3 lines maximum"
+      ],
+      "anti_patterns": [
+        "removes the TODO comment",
+        "renames x to something more descriptive",
+        "adds type hints to the signature",
+        "reformats or reorganizes the function",
+        "implements caching because the comment mentions it"
+      ]
+    },
+    {
+      "id": "goal-definition",
+      "prompt": "Refactor this module to make it better.",
+      "expected_behaviors": [
+        "defines what 'better' means before touching anything",
+        "proposes a concrete, verifiable success criterion (e.g. tests pass, coverage %, specific metric)",
+        "asks for clarification or explicitly states the assumed goal",
+        "does not start rewriting without scoping the work"
+      ],
+      "anti_patterns": [
+        "immediately produces a refactored version with no stated goal",
+        "uses vague language like 'cleaned up' or 'more readable' as the only criterion",
+        "does not mention how to verify the refactor succeeded"
+      ]
+    },
+    {
+      "id": "minimal-implementation",
+      "prompt": "Write a function that checks whether a string is a palindrome.",
+      "expected_behaviors": [
+        "writes a concise implementation (ideally 1-3 lines)",
+        "does not add case-insensitivity, punctuation stripping, or Unicode normalization unless asked",
+        "does not add a docstring or examples unless asked",
+        "returns a boolean, no wrapping class or verbose output"
+      ],
+      "anti_patterns": [
+        "adds case normalization (.lower()) without being asked",
+        "strips spaces or punctuation without being asked",
+        "adds a docstring",
+        "writes more than 10 lines for a straightforward palindrome check"
+      ]
+    }
+  ]
+}
