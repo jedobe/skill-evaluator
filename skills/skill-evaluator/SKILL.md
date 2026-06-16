@@ -177,13 +177,13 @@ There are two levels of verification — score at whichever level is present:
 | Tool Score | Guideline Score | Criteria |
 |-----------|-----------------|----------|
 | 13–15 | 5 | **Behavioral evals present**: `evals/fixtures/<skill>/tasks.json` + `judge.md` exist. Tests run Pass A (with skill) vs Pass B (baseline) and measure delta. Output format fully specified. |
-| 9–12 | 3–4 | **Static evals only**: `evals/` folder with test prompts and expected score ranges. Verifies evaluator consistency, not behavioral change. Clear definition of done. |
-| 5–8 | 2 | Rough description of expected output. Leaves ambiguity. No runnable tests. |
-| 0–4 | 0–1 | No output spec. "Good results" is the only criterion. |
+| 9–12 | 3–4 | **Static evals only** (`evals/` folder with test prompts and expected ranges), OR — for a guideline skill — the instructions define explicit, verifiable success criteria in-content (e.g. "write a failing test, then make it pass", a measurable goal, a definition of done). |
+| 5–8 | 2 | Rough description of expected output. Leaves ambiguity. No runnable tests and no concrete success criteria. |
+| 0–4 | 0–1 | No output spec and no notion of "done". "Good results" is the only criterion. |
 
-**What to look for:** `evals/fixtures/<skill>/tasks.json` (behavioral), `evals/` folder with prompts (static), defined output templates, CI-committed snapshots.
+**What to look for:** `evals/fixtures/<skill>/tasks.json` (behavioral), `evals/` folder with prompts (static), in-content success criteria (guideline skills), defined output templates, CI-committed snapshots.
 
-**Static vs. Behavioral distinction:** Static evals check whether the *evaluator* scores consistently. Behavioral evals check whether the *skill itself* changes model outputs. A skill with only static evals can score 9–12; behavioral fixtures are required for 13–15.
+**Static vs. Behavioral distinction:** Static evals check whether the *evaluator* scores consistently. Behavioral evals check whether the *skill itself* changes model outputs. A skill with only static evals — or a guideline skill that defines verifiable success criteria in its instructions — scores 9–12 (Tool) / 3–4 (Guideline); committed behavioral fixtures are required for the top band.
 
 ### Dimension 5 — Tradeoff Transparency (Tool: 10 pts · Guideline: 18 pts)
 

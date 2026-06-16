@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.0 — 2026.06.16
+
+- fix: resolve a Verifiability double-penalty for guideline skills — v1.4.0 both de-weighted Verifiability to 5 ("nothing to verify") AND scored 0–1 when no eval files exist; a guideline skill that defines verifiable success criteria in-content now scores 3–4. Recovered karpathy from 71 (failing) to 77/Gold, realigning with the ~78 calibration anchor
+- fix: README example scorecard adds the `Scope:` line required by the v1.3.0 output format
+- docs: CONTRIBUTING.md documents the behavioral eval layer (fixture format, `BEHAVIORAL_CASES` contract) and updates the repo-structure tree
+- chore: regenerate static snapshot in the v1.4.0 nested `{static, behavioral}` format
+
 ## v1.4.0 — 2026.06.16
 
 - feat: behavioral eval system — `evals/behavioral.py` runs Pass A (with skill) vs Pass B (baseline) and uses an LLM judge to measure behavioral delta

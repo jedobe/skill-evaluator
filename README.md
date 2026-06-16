@@ -19,6 +19,7 @@ The rubric was built by analyzing what actually separates top-tier skills (obra/
 ```
 ## Skill Evaluation: karpathy-guidelines
 
+Scope: Single skill
 Category: Guideline skill
 
 | Dimension            | Score | Max |

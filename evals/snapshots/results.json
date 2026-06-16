@@ -1,26 +1,28 @@
-[
-  {
-    "name": "minimal",
-    "total": 10,
-    "tier": "Bronze",
-    "expected_range": [
-      5,
-      15
-    ],
-    "expected_tier": "Bronze",
-    "passed": true,
-    "raw_output": "## Skill Evaluation: hello\n\nCategory: Guideline skill\n\n| Dimension | Score | Max | Notes |\n|-----------|-------|-----|-------|\n| Trigger Clarity | 2 | 20 | One-line generic summary; no trigger conditions, phrases, or \"when NOT to use\" guidance |\n| Instruction Specificity | 2 | 24 | Single vague sentence; no format, no branching, no edge case handling whatsoever |\n| Reference Density | 0 | 8 | No examples, templates, or reference material of any kind |\n| Verifiability | 0 | 5 | No output spec, no"
-  },
-  {
-    "name": "karpathy",
-    "total": 78,
-    "tier": "Gold",
-    "expected_range": [
-      72,
-      82
-    ],
-    "expected_tier": "Gold",
-    "passed": true,
-    "raw_output": "## Skill Evaluation: karpathy-guidelines\n\nCategory: Guideline skill\n\n| Dimension | Score | Max | Notes |\n|-----------|-------|-----|-------|\n| Trigger Clarity | 15 | 20 | Names 3 trigger scenarios (writing, reviewing, refactoring) plus 4 goal-oriented use cases; no explicit \"do NOT use when\" edge cases |\n| Instruction Specificity | 20 | 24 | Four well-structured sections with concrete heuristics and conditional logic (\"If yes, simplify\"); missing edge case handling across sections |\n| Reference "
-  }
-]
+{
+  "static": [
+    {
+      "name": "minimal",
+      "total": 11,
+      "tier": "Bronze",
+      "expected_range": [
+        5,
+        15
+      ],
+      "expected_tier": "Bronze",
+      "passed": true,
+      "raw_output": "## Skill Evaluation: hello\n\n**Scope:** Single skill\n**Category:** Guideline skill — purely behavioral instruction with no structured output\n\n| Dimension | Score | Max | Notes |\n|-----------|-------|-----|-------|\n| Trigger Clarity | 2 | 20 | \"A simple hello skill\" is a one-line generic summary; zero trigger conditions enumerated |\n| Instruction Specificity | 1 | 24 | \"Say hello to the user.\" is the entire body — no steps, no branching, no edge case handling |\n| Reference Density | 0 | 8 | No exa"
+    },
+    {
+      "name": "karpathy",
+      "total": 77,
+      "tier": "Gold",
+      "expected_range": [
+        72,
+        82
+      ],
+      "expected_tier": "Gold",
+      "passed": true,
+      "raw_output": "## Skill Evaluation: karpathy-guidelines\n\nScope: Single skill\nCategory: Guideline skill\n\n| Dimension | Score | Max | Notes |\n|-----------|-------|-----|-------|\n| Trigger Clarity | 14 | 20 | Names 3 trigger actions (writing, reviewing, refactoring) but doesn't enumerate 4+ user phrases or define explicit non-trigger cases |\n| Instruction Specificity | 20 | 24 | Four numbered sections with concrete rules, branching logic (\"If you notice…mention it — don't delete it\"), and a self-check heuristic; "
+    }
+  ]
+}
