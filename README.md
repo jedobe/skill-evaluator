@@ -1,7 +1,8 @@
 # skill-evaluator
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
+![Version](https://img.shields.io/badge/version-1.6.0-green.svg)
+![CI](https://github.com/jedobe/skill-evaluator/actions/workflows/ci.yml/badge.svg)
 ![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Codex%20%7C%20Cursor-lightgrey.svg)
 
 **Everyone's writing skills. Nobody knows if they're any good.**

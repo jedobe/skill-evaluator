@@ -1,0 +1,28 @@
+name: CI
+
+# Structural validation only — no API calls, no secrets required.
+# The live eval suite (evals/run.py) needs the claude CLI and is run by
+# maintainers; this workflow guards the regressions that can be caught
+# statically: rubric weight sums, JSON validity, fixture integrity.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile eval scripts
+        run: python -m py_compile evals/run.py evals/behavioral.py evals/validate.py
+
+      - name: Validate rubric, JSON, and fixtures
+        run: python evals/validate.py

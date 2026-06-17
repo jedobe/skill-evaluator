@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.6.0 — 2026.06.17
+
+- feat: CI — `.github/workflows/ci.yml` runs structural validation on every push/PR, no API key required
+- feat: `evals/validate.py` — offline checks that catch the regressions this repo has actually hit: rubric weight columns summing to 100, valid snapshot/fixture JSON, behavioral fixtures with required keys and files
+- fix: README version badge was stale at 1.0.0 → 1.6.0; added a CI status badge
+- docs: CONTRIBUTING PR checklist and repo-structure tree updated for validate.py + CI
+
 ## v1.5.0 — 2026.06.16
 
 - fix: resolve a Verifiability double-penalty for guideline skills — v1.4.0 both de-weighted Verifiability to 5 ("nothing to verify") AND scored 0–1 when no eval files exist; a guideline skill that defines verifiable success criteria in-content now scores 3–4. Recovered karpathy from 71 (failing) to 77/Gold, realigning with the ~78 calibration anchor

@@ -96,7 +96,8 @@ If you believe a score band is miscalibrated (e.g., "13–15 is too easy to reac
 
 Before opening a pull request, confirm:
 
-- [ ] `python evals/run.py` passes all cases
+- [ ] `python evals/validate.py` passes (offline structural check — no API key needed; this is what CI runs)
+- [ ] `python evals/run.py` passes all cases (needs the `claude` CLI logged in)
 - [ ] New eval case (if added) has a tight expected range (≤ 12 pts)
 - [ ] `CHANGELOG.md` updated with a brief description of the change
 - [ ] No changes to `rubric.md` without a corresponding issue discussion
@@ -113,6 +114,10 @@ evals/
   snapshots/     — CI-committed result JSON (do not edit manually)
   run.py         — eval harness (static + behavioral; --mode static|behavioral|both)
   behavioral.py  — behavioral eval engine (Pass A/B + LLM judge)
+  validate.py    — offline structural checks (rubric sums, JSON, fixtures); run in CI
+.github/
+  workflows/
+    ci.yml       — runs validate.py on push/PR (no secrets)
 skills/
   skill-evaluator/
     SKILL.md     — the evaluator skill itself
